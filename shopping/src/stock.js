@@ -18,7 +18,7 @@ const productos =
         desc: "Una remera que re va con vos",
         precio: 500,
         talle: "L",
-        img: 'public/images/remera.jpg',
+        img: 'public/images/nikanremera.jpeg',
         cantidad:1
     },
 
@@ -62,9 +62,21 @@ const productos =
         desc: "Una remera que re va con vos",
         precio: 500,
         talle: "L",
-        img: 'public/images/remera.jpg',
+        img: 'public/images/nikanremera2.jpeg',
         cantidad:1
-    }
+    },
+
+{
+    id: 7,
+    nombre: "Remera 2",
+    tipo: "remera",
+    desc: "Una remera que re va con vos",
+    precio: 500,
+    talle: "L",
+    img: 'public/images/nikanremeras.jpeg',
+    cantidad:1
+}
 ];
+
 
 export { productos };
