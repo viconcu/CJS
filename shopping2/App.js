@@ -6,7 +6,7 @@ const mostrarProductos = async () => {
 
   const productos = await obtenerProductos();
 
-  productos.forEach(producto => {
+  productos.forEach(producto => { //recorre el array con el forEach
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML += `<div class="card-image">
@@ -19,7 +19,7 @@ const mostrarProductos = async () => {
                           <p>Talle: ${producto.talle}</p>
                           <p>${producto.precio}</p>
                       </div>
-                     `
+                      `
     contenedorProductos.appendChild(div);
 
     const boton = document.getElementById(`boton${producto.id}`);

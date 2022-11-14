@@ -2,9 +2,9 @@ import { actualizarTotalesCarrito } from './actualizarCarrito.js';
 import { productos } from './stock.js';
 import { obtenerCarritoStorage } from './storage.js';
 
-let carrito = [];
+let carrito = []; // array vacio
 
-const validarProductoRepetido = (productoId) => {
+const validarProductoRepetido = (productoId) => { //aca se suman los productos si hay mas de 1
 
     if (localStorage.getItem('carrito')) {
         carrito = obtenerCarritoStorage();
@@ -56,6 +56,7 @@ const pintarCarrito = (carrito) => {
     });
 };
 
+
 const eliminarProductoCarrito = (productoId) => {
     const carritoStorage = obtenerCarritoStorage();
     const carritoActualizado = carritoStorage.filter(producto => producto.id != productoId);
@@ -63,5 +64,18 @@ const eliminarProductoCarrito = (productoId) => {
     actualizarTotalesCarrito(carritoActualizado);
     pintarCarrito(carritoActualizado);
 };
+
+const botonVaciar = document.getElementById('vaciar-carrito');  //boton para vaciar todos los productos a la vez del carrito.
+botonVaciar.addEventListener('click', () => {
+    Swal.fire({
+        icon: 'success',
+        title: 'Felicidades',
+        text: 'Sus productos han sido eliminados del carrito',
+    });
+    carrito.length = 0;
+    actualizarTotalesCarrito(carrito);
+    pintarCarrito(carrito);
+});
+
 
 export { agregarAlCarrito, validarProductoRepetido, pintarCarrito, eliminarProductoCarrito };
