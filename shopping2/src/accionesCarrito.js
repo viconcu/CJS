@@ -67,15 +67,23 @@ const eliminarProductoCarrito = (productoId) => {
 
 const botonVaciar = document.getElementById('vaciar-carrito');  //boton para vaciar todos los productos a la vez del carrito.
 botonVaciar.addEventListener('click', () => {
+    if(carrito.length != 0) {
     Swal.fire({
         icon: 'success',
         title: 'Felicidades',
         text: 'Sus productos han sido eliminados del carrito',
-    });
+    })}else if(carrito.length === 0) {
+        Swal.fire({
+            icon:  'warning',
+            title: 'No posee productos en su carrito',
+            text: 'Agregue algun producto en su carrito para continuar',
+        });
+    }
     carrito.length = 0;
     actualizarTotalesCarrito(carrito);
     pintarCarrito(carrito);
-});
+    });
+
 
 
 export { agregarAlCarrito, validarProductoRepetido, pintarCarrito, eliminarProductoCarrito };
